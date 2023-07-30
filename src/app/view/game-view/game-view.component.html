@@ -1,0 +1,9 @@
+<p>WHAT {{gameState}}</p>
+<div [ngSwitch]="gameState">
+    <p *ngSwitchCase="GameStates.TITLE"><app-game-title></app-game-title></p>
+    <!-- <app-game-title *ngSwitchCase="GameStates.TITLE">
+    </app-game-title> -->
+    <p *ngSwitchDefault>
+        PAIn
+    </p>
+</div>
