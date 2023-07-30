@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { GameStates } from './game-states';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameStateService {
-  private gameState: GameStates;
+  private _gameState = new BehaviorSubject<GameStates>(GameStates.OFF);
+  readonly gameState = this._gameState.asObservable();
   constructor() {
-    this.gameState = GameStates.OFF;
-  }
-  public getStateObservable() {
-    return new Observable((observer) => {
-      observer.next(this.gameState);
-    });
+    this.goToTitleState();
   }
   private setState(newState: GameStates): void {
-    this.gameState = newState;
+    this._gameState.next(newState);
   }
   goToTitleState(): void {
     this.setState(GameStates.TITLE);

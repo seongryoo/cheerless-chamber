@@ -16,7 +16,7 @@ export class WithGameStateComponent implements OnInit {
     this.gameState = GameStates.OFF;
   }
   ngOnInit() {
-    this.gameStateService.getStateObservable().subscribe((state: any) => {
+    this.gameStateService.gameState.subscribe((state: any) => {
       this.gameState = state;
     });
   }
