@@ -1,10 +1,9 @@
-<p>WHAT {{ gameState }}</p>
 <div [ngSwitch]="gameState">
   <ng-template [ngSwitchCase]="GameStates.TITLE"><app-game-title></app-game-title></ng-template>
   <ng-template [ngSwitchCase]="GameStates.PLAY">
-    <p>Play time's here</p>
+    <p>Play state!!!!</p>
   </ng-template>
   <!-- <app-game-title *ngSwitchCase="GameStates.TITLE">
     </app-game-title> -->
-  <p *ngSwitchDefault>PAIn</p>
+  <p *ngSwitchDefault>Default state</p>
 </div>
