@@ -10,7 +10,7 @@ export class GameStateService {
   constructor() {
     this.gameState = GameStates.OFF;
   }
-  public getState() {
+  public getStateObservable() {
     return new Observable((observer) => {
       observer.next(this.gameState);
     });

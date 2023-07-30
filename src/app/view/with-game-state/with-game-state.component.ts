@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GameStateService } from 'src/app/model/game-state.service';
 import { GameStates } from 'src/app/model/game-states';
 
@@ -7,14 +7,16 @@ import { GameStates } from 'src/app/model/game-states';
   templateUrl: './with-game-state.component.html',
   styleUrls: ['./with-game-state.component.scss'],
 })
-export class WithGameStateComponent {
+export class WithGameStateComponent implements OnInit {
   gameStateService: GameStateService;
   readonly GameStates = GameStates;
   gameState: GameStates;
   constructor(gameStateService: GameStateService) {
     this.gameStateService = gameStateService;
     this.gameState = GameStates.OFF;
-    this.gameStateService.getState().subscribe((state: any) => {
+  }
+  ngOnInit() {
+    this.gameStateService.getStateObservable().subscribe((state: any) => {
       this.gameState = state;
     });
   }
