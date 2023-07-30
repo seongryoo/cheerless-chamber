@@ -1,0 +1,14 @@
+@use "../../../globals.scss";
+
+.site-heading {
+  font-family: "Passion One", serif;
+  font-size: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: globals.$blood;
+  .site-heading__subheader {
+    font-size: 2rem;
+  }
+}
