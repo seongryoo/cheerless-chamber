@@ -1,9 +1,9 @@
 <div [ngSwitch]="gameState">
-  <ng-template [ngSwitchCase]="GameStates.TITLE"><app-game-title></app-game-title></ng-template>
-  <ng-template [ngSwitchCase]="GameStates.PLAY">
-    <p>Play state!!!!</p>
+  <ng-template [ngSwitchCase]="GameStates.TITLE">
+    <app-game-title></app-game-title>
   </ng-template>
-  <!-- <app-game-title *ngSwitchCase="GameStates.TITLE">
-    </app-game-title> -->
+  <ng-template [ngSwitchCase]="GameStates.PLAY">
+    <app-play-view></app-play-view>
+  </ng-template>
   <p *ngSwitchDefault>Default state</p>
 </div>

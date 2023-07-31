@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WithGameStateComponent } from '../with-game-state/with-game-state.component';
+import { WithGameStateComponent } from '../../with-game-state/with-game-state.component';
 
 @Component({
   selector: 'app-game-title',
