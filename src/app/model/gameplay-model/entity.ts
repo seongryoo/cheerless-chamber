@@ -60,6 +60,9 @@ export abstract class Entity {
   constructor(id: string) {
     this.id = id;
   }
+  initHealth() {
+    this.currHealth = this.maxHealth.baseValue;
+  }
   takeDamage(amount: number) {
     const totalArmor = this.getArmor();
     const amountWithDamageReduction = Math.max(amount - totalArmor, 0);

@@ -48,5 +48,6 @@ export class Knight extends Hero {
         this.accuracy = stat(90);
         this.strength = stat(5);
         this.armor = stat(0);
+        this.initHealth();
     }
 }
