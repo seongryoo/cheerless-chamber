@@ -1,7 +1,7 @@
 import { getRandom, stat } from "../../utils";
 import { HeroAbility } from "../ability";
 import { Stat } from "../entity";
-import { Hero, HeroArchetypes } from "../hero";
+import { Hero, HeroArchetypes } from "./hero";
 import { Surge } from "../status-effect";
 
 const cleave: HeroAbility = {

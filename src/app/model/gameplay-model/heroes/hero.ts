@@ -1,5 +1,5 @@
-import { HeroAbility } from "./ability";
-import { Entity } from "./entity";
+import { HeroAbility } from "../ability";
+import { Entity } from "../entity";
 
 export enum HeroArchetypes {
     KNIGHT

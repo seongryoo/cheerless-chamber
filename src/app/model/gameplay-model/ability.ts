@@ -1,5 +1,5 @@
 import { Entity } from "./entity";
-import { Hero } from "./hero";
+import { Hero } from "./heroes/hero";
 
 export interface HeroAbility {
     id: string;
