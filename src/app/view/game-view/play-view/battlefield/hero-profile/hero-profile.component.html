@@ -1,0 +1,32 @@
+<h4>
+  <button
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-controls]="getAccordionId()"
+    (click)="toggleAccordion()"
+  >
+    {{ hero.displayName }}
+  </button>
+</h4>
+<section
+  [class]="getAccordionClass()"
+  [id]="getAccordionId()"
+  role="region"
+  [attr.hidden]="!isOpen ? '' : null"
+>
+  <p>Class: {{ hero.archetypeDisplayName }}</p>
+  <h5>Stats</h5>
+  <ul>
+    <li>ID: {{ hero.id }}</li>
+    <li>Health: {{ hero.currHealth }}/{{ hero.getMaxHealth() }}</li>
+    <li>Attack: {{ hero.getStrength() }}</li>
+    <li>Accuracy: {{ hero.getAccuracy() }}</li>
+    <li>Crit chance: {{ hero.getCritChance() * 100 }}%</li>
+    <li>Armor rating: {{ hero.getArmor() }}</li>
+  </ul>
+  <h5>Abilities</h5>
+  <ul>
+    <li *ngFor="let ability of hero.abilities">
+      {{ ability.displayName }}
+    </li>
+  </ul>
+</section>

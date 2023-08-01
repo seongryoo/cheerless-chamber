@@ -1,3 +1,4 @@
+import { getUID } from '../utils';
 import { StatusEffect } from './status-effect';
 
 export enum StatModifierType {
@@ -49,6 +50,10 @@ export abstract class Entity {
   getArmor(): number {
     return this.getStatValue(this.armor);
   }
+  abstract critChance: Stat;
+  getCritChance(): number {
+    return this.getStatValue(this.critChance);
+  }
 
   currHealth: number = 0;
 
@@ -58,7 +63,7 @@ export abstract class Entity {
   statusEffects: StatusEffect[] = [];
 
   constructor(id: string) {
-    this.id = id;
+    this.id = id + getUID();
   }
   initHealth() {
     this.currHealth = this.maxHealth.baseValue;

@@ -77,3 +77,60 @@ export class Surge extends StatusEffect {
         target.removeStatModifier(target.strength, this.uid);
     }
 }
+
+
+export class Flatfooted extends StatusEffect {
+    override uid: string;
+    override id: string = "flatfooted";
+    override displayName: string = "Flatfooted";
+    override description: string = "Decreases accuracy";
+    override countDown: number;
+    override discriminant: EffectTypes = EffectTypes.SURGE;
+    accuracyMagnitude: number;
+    constructor(countDown: number, accuracyMagnitude: number) {
+        super();
+        this.uid = getUID() + "flatfooted";
+        this.countDown = countDown;
+        this.accuracyMagnitude = accuracyMagnitude;
+    }
+    override onTurnStart = () => {
+        this.decrementCountdown();
+    };
+
+    override onApplyStatus = (target: Entity) => {
+        const modifier: StatModifier = {
+            id: this.uid,
+            magnitude: -this.accuracyMagnitude,
+            type: StatModifierType.ADDITIVE
+        };
+        target.addStatModifier(target.accuracy, modifier);
+    };
+    override onRemoveStatus = (target: Entity) => {
+        target.removeStatModifier(target.accuracy, this.uid);
+    }
+}
+
+
+export class Bleeding extends StatusEffect {
+    override uid: string;
+    override id = "bleeding";
+    override displayName = "Bleeding";
+    override description = "Target takes damage at the beginning of each turn."
+    override discriminant = EffectTypes.BURNING;
+    override countDown: number;
+    override onApplyStatus = (target: Entity) => {};
+    override onRemoveStatus = (target: Entity) => {};
+    bleedMagnitude: number;
+    override onTurnStart = (target: Entity) => {
+        if (target.currHealth) {
+            target.currHealth -= this.bleedMagnitude;
+        }
+        this.decrementCountdown();
+    }
+    constructor(countDown: number, bleedMagnitude: number) {
+        super();
+        this.uid = getUID();
+        this.countDown = countDown;
+        this.bleedMagnitude = bleedMagnitude;
+    }
+}

@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { GameViewComponent } from './view/game-view/game-view.component';
 import { GameTitleComponent } from './view/game-view/game-title/game-title.component';
 import { initAppFactory } from './model/init-app-factory';
-import { GameStateService } from './model/game-state.service';
+import { GameStateService } from './model/game-state-service/game-state.service';
 import { WithGameStateComponent } from './view/with-game-state/with-game-state.component';
 import { PlayViewComponent } from './view/game-view/play-view/play-view.component';
+import { BattlefieldComponent } from './view/game-view/play-view/battlefield/battlefield.component';
+import { HeroProfileComponent } from './view/game-view/play-view/battlefield/hero-profile/hero-profile.component';
 
 @NgModule({
-  declarations: [AppComponent, GameViewComponent, GameTitleComponent, WithGameStateComponent, PlayViewComponent],
+  declarations: [AppComponent, GameViewComponent, GameTitleComponent, WithGameStateComponent, PlayViewComponent, BattlefieldComponent, HeroProfileComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     {

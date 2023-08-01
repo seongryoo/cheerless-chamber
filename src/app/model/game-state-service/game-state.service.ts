@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GameStates } from './game-states';
+import { GameStates } from '../game-states';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

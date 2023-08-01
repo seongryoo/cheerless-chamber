@@ -2,7 +2,7 @@ import { HeroAbility } from "../ability";
 import { Entity } from "../entity";
 
 export enum HeroArchetypes {
-    KNIGHT
+    CAVALIER
 }
 
 export abstract class Hero extends Entity {

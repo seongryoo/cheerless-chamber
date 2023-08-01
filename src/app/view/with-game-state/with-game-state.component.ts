@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameStateService } from 'src/app/model/game-state.service';
+import { GameStateService } from 'src/app/model/game-state-service/game-state.service';
 import { GameStates } from 'src/app/model/game-states';
 
 @Component({

@@ -43,3 +43,8 @@ body {
   background: globals.$black;
   color: white;
 }
+
+*:focus {
+  outline: globals.$blood solid 6px;
+  outline-offset: 4px;
+}

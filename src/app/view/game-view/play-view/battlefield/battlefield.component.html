@@ -1,0 +1,19 @@
+<div class="battlefield">
+    <h2>Battlefield</h2>
+    <section class="battlefield__heroes">
+        <h3>Heroes</h3>
+        <ol>
+            <li *ngFor="let hero of battleService.heroes">
+                <app-hero-profile [hero]="hero"></app-hero-profile>
+            </li>
+
+        </ol>
+    </section>
+    <section class="battlefield__enemies">
+        <h3>Enemies</h3>
+        <ul>
+
+        </ul>
+    </section>
+
+</div>
