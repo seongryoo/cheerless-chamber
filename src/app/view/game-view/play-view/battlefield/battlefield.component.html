@@ -9,15 +9,24 @@
         aria-labelledby="field__units__section__title--heroes"
         class="field__units__section__list field__units__section__list--heroes"
       >
-        <li
-          *ngFor="let hero of battleService.heroes"
-          class="
-            field__units__section__list__unit
-            field__units__section__list__unit--hero
-          "
+        <ng-template
+          ngFor
+          let-hero
+          [ngForOf]="battleService.heroes"
+          let-i="index"
         >
-          <app-hero-profile [hero]="hero"></app-hero-profile>
-        </li>
+          <ng-template [ngIf]="hero !== null">
+            <li
+              class="
+                field__units__section__list__unit
+                field__units__section__list__unit--hero
+              "
+            >
+              <p>Position {{ i }}</p>
+              <app-hero-profile [hero]="hero"></app-hero-profile>
+            </li>
+          </ng-template>
+        </ng-template>
       </ol>
     </section>
     <section class="field__units__section field__units__section--enemies">

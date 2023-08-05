@@ -1,26 +1,26 @@
 .field__units {
-	width: 100%;
+  width: 100%;
   display: flex;
-	border: 1px solid red;
+  border: 1px solid red;
 }
 
 .field__units__section {
-	flex: 1;
-	position: relative; //referenced by profile info
+  flex: 1;
+  position: relative; //referenced by profile info
 }
 
 .field__units__section__list {
   list-style: none;
   display: flex;
-	border: 1px solid green;
+  border: 1px solid green;
 }
 
 .field__units__section__list--heroes {
-	justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .field__units__section__list__unit {
   flex: 1 0 25%;
-	max-width: 25%;
-	border: 1px solid blue;
+  max-width: 25%;
+  border: 1px solid blue;
 }

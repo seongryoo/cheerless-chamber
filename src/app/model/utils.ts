@@ -1,4 +1,4 @@
-import { Stat } from "./gameplay-model/entity";
+import { Entity, Stat } from "./gameplay-model/entity";
 
 export const getRandom = (min: number, max: number) => {
   if (max <= min) {
@@ -19,4 +19,14 @@ export const stat = (baseValue: number) => {
     modifiers: []
   }
   return statObject;
+}
+
+export const sortEntities = (a: Entity | null, b: Entity | null) => {
+  if (a === null) {
+    return -1;
+  }
+  if (b === null) {
+    return 1;
+  }
+  return 0;
 }

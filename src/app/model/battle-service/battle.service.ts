@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Hero } from '../gameplay-model/heroes/hero';
 import { Enemy } from '../gameplay-model/enemies/enemy';
 import { Cavalier } from '../gameplay-model/heroes/knight';
+import { sortEntities } from '../utils';
 
 const godfrey: Cavalier = new Cavalier("godfrey", "Godfrey");
 const dulcineus: Cavalier = new Cavalier("dulcineus", "Dulcineus");
@@ -10,11 +11,12 @@ const dulcineus: Cavalier = new Cavalier("dulcineus", "Dulcineus");
   providedIn: 'root'
 })
 export class BattleService {
-  heroes: Hero[];
-  enemies: Enemy[];
+  heroes: (Hero | null)[];
+  enemies: (Enemy | null)[];
 
   constructor() {
-    this.heroes = [godfrey, dulcineus];
+    this.heroes = [godfrey, null, dulcineus, null];
+    this.heroes = this.heroes.sort(sortEntities);
     this.enemies = [];
   }
 }
