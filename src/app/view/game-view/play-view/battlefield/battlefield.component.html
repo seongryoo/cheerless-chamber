@@ -1,19 +1,33 @@
-<div class="battlefield">
-    <h2>Battlefield</h2>
-    <section class="battlefield__heroes">
-        <h3>Heroes</h3>
-        <ol>
-            <li *ngFor="let hero of battleService.heroes">
-                <app-hero-profile [hero]="hero"></app-hero-profile>
-            </li>
-
-        </ol>
+<div class="field">
+  <h2>Battlefield</h2>
+  <div class="field__units">
+    <section class="field__units__section field__units__section--heroes">
+      <h3 id="field__units__section__title--heroes" class="visually-hidden">
+        Heroes
+      </h3>
+      <ol
+        aria-labelledby="field__units__section__title--heroes"
+        class="field__units__section__list field__units__section__list--heroes"
+      >
+        <li
+          *ngFor="let hero of battleService.heroes"
+          class="
+            field__units__section__list__unit
+            field__units__section__list__unit--hero
+          "
+        >
+          <app-hero-profile [hero]="hero"></app-hero-profile>
+        </li>
+      </ol>
     </section>
-    <section class="battlefield__enemies">
-        <h3>Enemies</h3>
-        <ul>
-
-        </ul>
+    <section class="field__units__section field__units__section--enemies">
+      <h3 id="field__units__section__title--enemies" class="visually-hidden">
+        Enemies
+      </h3>
+      <ul
+        aria-labelledby="field__units__section__title--enemies"
+        class="field__units__section__list field__units__section__list--enemies"
+      ></ul>
     </section>
-
+  </div>
 </div>

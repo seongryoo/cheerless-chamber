@@ -44,7 +44,17 @@ body {
   color: white;
 }
 
+ol, ul {
+  list-style: none;
+  padding: 0;
+}
+
 *:focus {
   outline: globals.$blood solid 6px;
   outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  opacity: 0.1;
 }
