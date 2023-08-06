@@ -1,22 +1,44 @@
 import { Injectable } from '@angular/core';
 import { Hero } from '../gameplay-model/heroes/hero';
-import { Enemy } from '../gameplay-model/enemies/enemy';
 import { Cavalier } from '../gameplay-model/heroes/knight';
-import { sortEntities } from '../utils';
+import { trimEntities } from '../utils';
+import { HeroOrNull, EnemyOrNull, Orientation } from '../types';
 
-const godfrey: Cavalier = new Cavalier("godfrey", "Godfrey");
-const dulcineus: Cavalier = new Cavalier("dulcineus", "Dulcineus");
+const godfrey: Cavalier = new Cavalier('godfrey', 'Godfrey');
+const dulcineus: Cavalier = new Cavalier('dulcineus', 'Dulcineus');
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BattleService {
-  heroes: (Hero | null)[];
-  enemies: (Enemy | null)[];
+  heroes: HeroOrNull[];
+  enemies: EnemyOrNull[];
 
   constructor() {
-    this.heroes = [godfrey, null, dulcineus, null];
-    this.heroes = this.heroes.sort(sortEntities);
+    this.heroes = [godfrey, dulcineus];
     this.enemies = [];
+    this.trimHeroes();
+    this.trimEnemies();
+    console.log(this.heroes);
+    console.log(this.enemies);
+  }
+
+  trimHeroes() {
+    this.heroes = trimEntities<HeroOrNull>(this.heroes, Orientation.TO_THE_RIGHT);
+  }
+
+  trimEnemies() {
+    this.enemies = trimEntities<EnemyOrNull>(this.enemies, Orientation.TO_THE_LEFT);
+  }
+
+
+  getHero(position: number): HeroOrNull {
+    return this.heroes[position];
+  }
+
+  getHeroPosition(hero: Hero): number {
+    return this.heroes.findIndex(
+      (heroOrNull) => heroOrNull !== null && heroOrNull.id === hero.id
+    );
   }
 }

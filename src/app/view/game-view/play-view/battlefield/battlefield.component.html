@@ -2,10 +2,25 @@
   <h2>Battlefield</h2>
   <div class="field__units">
     <section class="field__units__section field__units__section--heroes">
-      <h3 id="field__units__section__title--heroes" class="visually-hidden">
+      <h3
+        id="field__units__section__title--heroes"
+        class="
+          field__units__section__title field__units__section__title--heroes
+        "
+      >
         Heroes
       </h3>
-      <ol
+      <div
+        id="hero-tab-list"
+        role="tablist"
+        aria-labelledby="field__units__section__title--heroes"
+      >
+        <button role="tab"></button>
+      </div>
+      <!-- <h3 id="field__units__section__title--heroes" class="visually-hidden">
+        Heroes
+      </h3>
+      <div
         aria-labelledby="field__units__section__title--heroes"
         class="field__units__section__list field__units__section__list--heroes"
       >
@@ -15,19 +30,17 @@
           [ngForOf]="battleService.heroes"
           let-i="index"
         >
-          <ng-template [ngIf]="hero !== null">
-            <li
-              class="
-                field__units__section__list__unit
-                field__units__section__list__unit--hero
-              "
-            >
-              <p>Position {{ i }}</p>
-              <app-hero-profile [hero]="hero"></app-hero-profile>
-            </li>
-          </ng-template>
+          <li
+            class="
+              field__units__section__list__unit
+              field__units__section__list__unit--hero
+            "
+          >
+            <p>Position {{battleService.getHeroPosition(hero)}}</p>
+            <app-hero-profile [hero]="hero"></app-hero-profile>
+          </li>
         </ng-template>
-      </ol>
+      </ol> -->
     </section>
     <section class="field__units__section field__units__section--enemies">
       <h3 id="field__units__section__title--enemies" class="visually-hidden">
