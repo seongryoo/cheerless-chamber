@@ -9,17 +9,17 @@
   position: relative; //referenced by profile info
 }
 
-.field__units__section__list {
+.field__units__section__tablist {
   list-style: none;
   display: flex;
   border: 1px solid green;
 }
 
-.field__units__section__list--heroes {
+.field__units__section__tablist--heroes {
   justify-content: flex-end;
 }
 
-.field__units__section__list__unit {
+.field__units__section__tablist__unit {
   flex: 1 0 25%;
   max-width: 25%;
   border: 1px solid blue;

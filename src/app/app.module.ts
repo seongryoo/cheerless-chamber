@@ -11,9 +11,11 @@ import { WithGameStateComponent } from './view/with-game-state/with-game-state.c
 import { PlayViewComponent } from './view/game-view/play-view/play-view.component';
 import { BattlefieldComponent } from './view/game-view/play-view/battlefield/battlefield.component';
 import { HeroProfileComponent } from './view/game-view/play-view/battlefield/hero-profile/hero-profile.component';
+import { WithBattleServiceComponent } from './view/with-battle-service/with-battle-service.component';
+import { HeroTablistComponent } from './view/game-view/play-view/battlefield/hero-tablist/hero-tablist.component';
 
 @NgModule({
-  declarations: [AppComponent, GameViewComponent, GameTitleComponent, WithGameStateComponent, PlayViewComponent, BattlefieldComponent, HeroProfileComponent],
+  declarations: [AppComponent, GameViewComponent, GameTitleComponent, WithGameStateComponent, PlayViewComponent, BattlefieldComponent, HeroProfileComponent, WithBattleServiceComponent, HeroTablistComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     {

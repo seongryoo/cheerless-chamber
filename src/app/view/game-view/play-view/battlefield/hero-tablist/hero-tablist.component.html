@@ -1,0 +1,45 @@
+<div #container>
+  <h3
+    id="unit-tablist-title--heroes"
+    class="unit-tablist-title unit-tablist-title--heroes"
+  >
+    Heroes
+  </h3>
+  <div
+    id="hero-tablist"
+    class="unit-tablist unit-tablist--heroes"
+    role="tablist"
+    aria-labelledby="unit-tablist__title unit-tablist__title--heroes"
+  >
+    <ng-template ngFor let-hero [ngForOf]="battleService.heroes" let-i="index">
+      <div class="unit-tablist__unit" *ngIf="hero !== null">
+        <button
+          id="{{ 'hero-tab-' + i }}"
+          role="tab"
+          (click)="handleTabClick(i)"
+          [attr.tabindex]="uiService.activeHeroPosition === i ? null : -1"
+          [attr.aria-selected]="uiService.activeHeroPosition === i"
+          [attr.aria-controls]="'hero-tabpanel-' + i"
+        >
+          {{ hero.displayName }}
+        </button>
+      </div>
+    </ng-template>
+  </div>
+  <ng-template ngFor let-hero [ngForOf]="battleService.heroes" let-i="index">
+    <ng-template [ngIf]="hero !== null">
+      <div
+        id="{{ 'hero-tabpanel-' + i }}"
+        class="{{
+          uiService.activeHeroPosition === i
+            ? 'hero-tabpanel--active'
+            : 'hero-tabpanel--hidden'
+        }}"
+        [attr.aria-labelledby]="'hero-tab-' + i"
+      >
+        <h4>{{ hero.displayName }}</h4>
+        <app-hero-profile [hero]="hero"></app-hero-profile>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

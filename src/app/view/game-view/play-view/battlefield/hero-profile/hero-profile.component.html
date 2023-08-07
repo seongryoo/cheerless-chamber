@@ -1,18 +1,4 @@
-<h4>
-  <button
-    [attr.aria-expanded]="isOpen"
-    [attr.aria-controls]="getAccordionId()"
-    (click)="toggleAccordion()"
-  >
-    {{ hero.displayName }}
-  </button>
-</h4>
-<section
-  [class]="getAccordionClass()"
-  [id]="getAccordionId()"
-  role="region"
-  [attr.hidden]="!isOpen ? '' : null"
->
+<section>
   <p>Class: {{ hero.archetypeDisplayName }}</p>
   <h5>Stats</h5>
   <ul>
